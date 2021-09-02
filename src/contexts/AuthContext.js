@@ -18,6 +18,11 @@ export function AuthProvider({ children }) {
 //as these components depend on the state of the 'current user'
     const [ loading, setLoading ] = useState(true)
 
+// PrivateRoute from react-router works in a way that distinguishes between a private and a public route(page)
+//for the purposes of user-profile update. firebase monitors the state of current user, and as soon as 
+//profile update occurs logs the current user out. hence the state of profileUpdate is added below, modified by UpdateProfilej,
+//and appropriate checks in the PrivateRoute to ensure the the page Profile-Update-Success is rendered, upon profile update success.
+//so that the user  is notified of a successful profile update and not just redirected to the login page. 
     const [ profileUpdate, setProfileUpdate ] = useState(false)
 
 
